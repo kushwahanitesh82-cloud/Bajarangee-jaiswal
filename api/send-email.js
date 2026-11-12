@@ -1,7 +1,7 @@
 // Vercel Serverless Function - Resend Email Dispatcher
 // Receives contact form submissions and delivers to bkjaiswal3399@gmail.com
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // CORS Headers
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -26,8 +26,14 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Missing required form fields (name, email, message)' });
   }
 
-  // Resend Secret API Key (from environment variable or fallback)
-  const apiKey = process.env.RESEND_API_KEY || 're_NV6RV9ZS_BmxW2YNWrzw8bYUkh2pub6Te';
+  // Resend Secret API Key (configured in Vercel Environment Variables)
+  const apiKey = process.env.RESEND_API_KEY;
+
+  if (!apiKey) {
+    return res.status(500).json({
+      error: 'RESEND_API_KEY environment variable is not configured. Please add it in your Vercel Project Settings.'
+    });
+  }
 
   try {
     const response = await fetch('https://api.resend.com/emails', {

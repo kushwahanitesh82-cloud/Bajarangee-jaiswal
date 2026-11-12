@@ -94,7 +94,23 @@ git push -u origin main
 
 ---
 
-## 🌐 Enable Free Live Website (GitHub Pages)
+## ⚡ Host on Vercel with Working Resend Email API (Recommended)
+
+To have the Contact Form send emails directly to `bkjaiswal3399@gmail.com` using the **Resend API**:
+
+1. Upload this repository to **GitHub** (using Option A or B above).
+2. Go to **[Vercel.com](https://vercel.com)** and sign in with your GitHub account (Free).
+3. Click **"Add New..."** > **"Project"** and click **Import** next to your `bajarangee-portfolio` repository.
+4. Before clicking Deploy, expand the **"Environment Variables"** section:
+   - **Key**: `RESEND_API_KEY`
+   - **Value**: `re_NV6RV9ZS_BmxW2YNWrzw8bYUkh2pub6Te`
+   - Click **Add**.
+5. Click **"Deploy"**.
+6. Within 30 seconds, your website is live (e.g. `bajarangee-portfolio.vercel.app`), and every message sent through the Contact Form will arrive directly in `bkjaiswal3399@gmail.com`!
+
+---
+
+## 🌐 Alternative: Enable Free Live Website on GitHub Pages
 
 Once uploaded to GitHub:
 1. Open your repository on GitHub.
