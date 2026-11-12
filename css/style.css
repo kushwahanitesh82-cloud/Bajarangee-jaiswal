@@ -2982,6 +2982,10 @@ button {
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .commitment-cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
   .footer-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -3104,6 +3108,10 @@ button {
   }
 
   /* About Me Section */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
   .about-portrait-img-box {
     height: 380px;
   }
@@ -3235,6 +3243,10 @@ button {
   .training-card {
     padding: 18px 16px;
   }
+  .focus-tags {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
 
   /* Achievements Banner */
   .achievements-banner {
@@ -3251,6 +3263,14 @@ button {
   .achieve-pillars {
     grid-template-columns: 1fr;
     gap: 8px;
+  }
+  .commitment-cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .commit-card {
+    padding: 20px 18px;
   }
 
   /* On-Site Gallery */
