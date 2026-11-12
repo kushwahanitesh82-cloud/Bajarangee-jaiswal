@@ -47,6 +47,8 @@ This repository is 100% self-contained and ready to upload to GitHub or any stat
 
 ```
 bajrangee/
+├── api/
+│   └── send-email.js        # Resend Email API Serverless Handler (Vercel Ready)
 ├── css/
 │   └── style.css            # Complete design system, animations, responsive layout
 ├── js/

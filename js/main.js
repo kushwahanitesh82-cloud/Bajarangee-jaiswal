@@ -413,19 +413,20 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* -------------------------------------------------------------------------
-     7. Contact Form Mailto Handler & Validation
+     7. Contact Form Handler (Resend API Integration with Mailto Fallback)
      ------------------------------------------------------------------------- */
   const contactForm = document.getElementById('portfolioContactForm') || document.getElementById('contactForm');
   const formStatus = document.getElementById('formStatus');
 
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const name = document.getElementById('contactName') || document.getElementById('senderName');
       const email = document.getElementById('contactEmail') || document.getElementById('senderEmail');
       const subject = document.getElementById('contactSubject') || document.getElementById('senderSubject');
       const message = document.getElementById('contactMessage') || document.getElementById('senderMessage');
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
 
       let isValid = true;
 
@@ -448,7 +449,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Validate Subject
       if (!subject || !subject.value.trim()) {
-        if (subject) showError(subject, 'Please enter a subject');
+        if (subject) showError(subject, 'Please enter a subject / topic');
         isValid = false;
       } else {
         clearError(subject);
@@ -464,28 +465,87 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!isValid) return;
 
-      // Construct verified mailto link
-      const mailtoUrl = `mailto:bkjaiswal3399@gmail.com?subject=${encodeURIComponent(
-        `[EHS Inquiry] ${subject.value.trim()} - from ${name.value.trim()}`
-      )}&body=${encodeURIComponent(
-        `Sender: ${name.value.trim()}\nEmail: ${email.value.trim()}\n\nMessage:\n${message.value.trim()}`
-      )}`;
+      const formData = {
+        name: name.value.trim(),
+        email: email.value.trim(),
+        subject: subject.value.trim(),
+        message: message.value.trim()
+      };
 
-      // Open email client
-      window.location.href = mailtoUrl;
-
-      // Display realistic status
-      if (formStatus) {
-        formStatus.style.display = 'flex';
-        formStatus.className = 'form-status success';
-        formStatus.innerHTML = `
-          <i data-lucide="check-circle" style="color:#059669;width:20px;height:20px;"></i>
-          <div>
-            <strong>Opening your default email client...</strong><br>
-            If your email application does not launch, send your message directly to <strong>bkjaiswal3399@gmail.com</strong> or reach out via WhatsApp (+91-7310181309).
-          </div>
+      // Button loading state
+      const originalBtnHtml = submitBtn ? submitBtn.innerHTML : 'Send Message';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+          <i data-lucide="loader-2" class="spin" style="width:16px;height:16px;"></i>
+          Sending via Resend...
         `;
         if (window.lucide) window.lucide.createIcons();
+      }
+
+      if (formStatus) {
+        formStatus.style.display = 'none';
+      }
+
+      try {
+        // Attempt sending via /api/send-email (Vercel Serverless Function)
+        const response = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+          const resData = await response.json();
+          if (resData.success) {
+            if (formStatus) {
+              formStatus.style.display = 'flex';
+              formStatus.className = 'form-status success';
+              formStatus.innerHTML = `
+                <i data-lucide="check-circle" style="color:#059669;width:20px;height:20px;flex-shrink:0;"></i>
+                <div>
+                  <strong>Message Sent Successfully!</strong><br>
+                  Thank you, <strong>${formData.name}</strong>. Your message has been delivered directly to Bajarangee Kumar Jaiswal via Resend. You will receive a response shortly.
+                </div>
+              `;
+              if (window.lucide) window.lucide.createIcons();
+            }
+            contactForm.reset();
+            return;
+          }
+        }
+        throw new Error('API route not reachable or returned error');
+      } catch (err) {
+        // Fallback for static GitHub Pages / local offline viewing:
+        // Automatically construct mailto link so no visitor communication is lost
+        const mailtoUrl = `mailto:bkjaiswal3399@gmail.com?subject=${encodeURIComponent(
+          `[EHS Inquiry] ${formData.subject} - from ${formData.name}`
+        )}&body=${encodeURIComponent(
+          `Sender: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+        )}`;
+
+        window.location.href = mailtoUrl;
+
+        if (formStatus) {
+          formStatus.style.display = 'flex';
+          formStatus.className = 'form-status success';
+          formStatus.innerHTML = `
+            <i data-lucide="mail-check" style="color:#168C8C;width:20px;height:20px;flex-shrink:0;"></i>
+            <div>
+              <strong>Opening Email Client...</strong><br>
+              Direct dispatch is opening in your email app. You can also contact directly at <strong>bkjaiswal3399@gmail.com</strong> or WhatsApp <strong>+91-7310181309</strong>.
+            </div>
+          `;
+          if (window.lucide) window.lucide.createIcons();
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHtml;
+          if (window.lucide) window.lucide.createIcons();
+        }
       }
     });
   }
