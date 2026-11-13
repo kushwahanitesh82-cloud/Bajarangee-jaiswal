@@ -26,12 +26,12 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: 'Missing required form fields (name, email, message)' });
   }
 
-  // Resend Secret API Key (configured in Vercel Environment Variables)
-  const apiKey = process.env.RESEND_API_KEY;
+  // Resend Secret API Key (from environment variable or default)
+  const apiKey = process.env.RESEND_API_KEY || 're_9wvA6Cct_LuAkg6crywGQGGDF1NXZHPPo';
 
   if (!apiKey) {
     return res.status(500).json({
-      error: 'RESEND_API_KEY environment variable is not configured. Please add it in your Vercel Project Settings.'
+      error: 'RESEND_API_KEY is not configured.'
     });
   }
 

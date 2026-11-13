@@ -2498,28 +2498,33 @@
 
           <div id="formStatus" style="display:none;"></div>
 
-          <form id="portfolioContactForm" novalidate>
+          <form id="portfolioContactForm" action="#" method="POST" novalidate>
+            <!-- Direct Delivery Configuration -->
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_subject" id="hiddenSubject" value="New EHS Portfolio Message">
+
             <div class="form-group">
               <label class="form-label" for="contactName">Your Name / Organization <span>*</span></label>
-              <input type="text" id="contactName" class="form-control" placeholder="e.g. Project Director (L&amp;T / NHAI)">
+              <input type="text" id="contactName" name="name" class="form-control" placeholder="e.g. Project Director (L&amp;T / NHAI)" required>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="contactEmail">Your Email Address <span>*</span></label>
-              <input type="email" id="contactEmail" class="form-control" placeholder="e.g. name@company.com">
+              <input type="email" id="contactEmail" name="email" class="form-control" placeholder="e.g. name@company.com" required>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="contactSubject">Subject / Discussion Topic <span>*</span></label>
-              <input type="text" id="contactSubject" class="form-control" placeholder="e.g. EHS Leadership Role / Highway Structure Consultation">
+              <input type="text" id="contactSubject" name="subject" class="form-control" placeholder="e.g. EHS Leadership Role / Highway Structure Consultation" required>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="contactMessage">Message Details <span>*</span></label>
-              <textarea id="contactMessage" rows="4" class="form-control" placeholder="Include project details, location, package scope, or collaboration requirements..."></textarea>
+              <textarea id="contactMessage" name="message" rows="4" class="form-control" placeholder="Include project details, location, package scope, or collaboration requirements..." required></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width:100%;padding:14px;">
+            <button type="submit" id="contactSubmitBtn" class="btn btn-primary" style="width:100%;padding:14px;">
               <i data-lucide="send" style="width:16px;height:16px;"></i>
               Send Message
             </button>

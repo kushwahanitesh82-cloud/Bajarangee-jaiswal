@@ -103,7 +103,7 @@ To have the Contact Form send emails directly to `bkjaiswal3399@gmail.com` using
 3. Click **"Add New..."** > **"Project"** and click **Import** next to your `bajarangee-portfolio` repository.
 4. Before clicking Deploy, expand the **"Environment Variables"** section:
    - **Key**: `RESEND_API_KEY`
-   - **Value**: `re_NV6RV9ZS_BmxW2YNWrzw8bYUkh2pub6Te`
+   - **Value**: `re_9wvA6Cct_LuAkg6crywGQGGDF1NXZHPPo`
    - Click **Add**.
 5. Click **"Deploy"**.
 6. Within 30 seconds, your website is live (e.g. `bajarangee-portfolio.vercel.app`), and every message sent through the Contact Form will arrive directly in `bkjaiswal3399@gmail.com`!
