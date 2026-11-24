@@ -498,11 +498,17 @@ document.addEventListener('DOMContentLoaded', () => {
         if (formStatus) {
           formStatus.style.display = 'flex';
           formStatus.className = 'form-status success';
+          const waUrl = `https://wa.me/917310181309?text=Hello%20Bajarangee,%20I%20sent%20an%20inquiry%20via%20your%20portfolio:%0A%E2%80%A2%20Name:%20${encodeURIComponent(formData.name)}%0A%E2%80%A2%20Subject:%20${encodeURIComponent(formData.subject)}%0A%E2%80%A2%20Message:%20${encodeURIComponent(formData.message)}`;
           formStatus.innerHTML = `
             <i data-lucide="check-circle" style="color:#059669;width:22px;height:22px;flex-shrink:0;"></i>
-            <div>
+            <div style="flex:1;">
               <strong style="color:#065F46;font-size:0.95rem;">Message Sent Successfully!</strong><br>
-              Thank you, <strong>${formData.name}</strong>. Your inquiry has been delivered directly to Bajarangee Kumar Jaiswal (${via}). A response will be provided shortly.
+              Thank you, <strong>${formData.name}</strong>. Your inquiry has been dispatched to Bajarangee Kumar Jaiswal.
+              <div style="margin-top: 10px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+                <a href="${waUrl}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#ffffff;font-size:0.82rem;font-weight:700;padding:6px 14px;border-radius:6px;text-decoration:none;box-shadow:0 2px 6px rgba(37,211,102,0.3);">
+                  <i data-lucide="message-circle" style="width:14px;height:14px;"></i> Instant WhatsApp Copy
+                </a>
+              </div>
             </div>
           `;
           if (window.lucide) window.lucide.createIcons();
