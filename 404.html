@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found | Bajarangee Kumar Jaiswal EHS Portfolio</title>
+  <meta name="robots" content="noindex, follow">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .error-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: radial-gradient(circle at 50% 20%, #152238 0%, #0A1118 100%);
+      color: #FFFFFF;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .error-container {
+      max-width: 720px;
+      margin: auto;
+      padding: 60px 24px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .error-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(242, 140, 40, 0.12);
+      border: 1px solid rgba(242, 140, 40, 0.4);
+      border-radius: 999px;
+      color: #F28C28;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .error-code {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(5rem, 15vw, 8.5rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, #FFFFFF 30%, #F28C28 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+    }
+
+    .error-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+    }
+
+    .error-desc {
+      font-size: 1.05rem;
+      color: #A0AEC0;
+      line-height: 1.65;
+      margin-bottom: 36px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .error-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .btn-return-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, #F28C28, #E07B18);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(242, 140, 40, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-return-home:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(242, 140, 40, 0.5);
+    }
+
+    .btn-return-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: background 0.2s ease;
+    }
+
+    .btn-return-secondary:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .error-contact-box {
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      display: inline-block;
+      font-size: 0.9rem;
+      color: #CBD5E0;
+    }
+
+    .error-contact-box a {
+      color: #168C8C;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .error-contact-box a:hover {
+      text-decoration: underline;
+    }
+
+    .error-nav-bar {
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .error-footer {
+      padding: 20px 32px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #718096;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  </style>
+</head>
+<body>
+  <div class="error-wrapper">
+    
+    <!-- Top Header Bar -->
+    <header class="error-nav-bar">
+      <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #FFFFFF;">
+        <div style="width: 38px; height: 38px; background: #F28C28; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #FFFFFF;">
+          <i data-lucide="shield-check" style="width: 22px; height: 22px;"></i>
+        </div>
+        <div>
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1rem; letter-spacing: 0.04em;">BAJARANGEE KUMAR JAISWAL</div>
+          <div style="font-size: 0.72rem; color: #A0AEC0; letter-spacing: 0.08em; text-transform: uppercase;">Assistant Manager – EHS</div>
+        </div>
+      </a>
+      <a href="/" class="btn-return-secondary" style="padding: 8px 16px; font-size: 0.85rem;">
+        <i data-lucide="home" style="width: 14px; height: 14px;"></i> Home
+      </a>
+    </header>
+
+    <!-- Error Main Message -->
+    <main class="error-container">
+      <div class="error-badge">
+        <i data-lucide="alert-triangle" style="width: 14px; height: 14px;"></i>
+        404 Standard Error
+      </div>
+      
+      <div class="error-code">404</div>
+      <h1 class="error-title">Page or Resource Not Found</h1>
+      <p class="error-desc">
+        The link you followed may be broken, mistyped, or the document has been moved. You can safely return to Bajarangee Kumar Jaiswal's official EHS portfolio below.
+      </p>
+
+      <div class="error-actions">
+        <a href="/" class="btn-return-home">
+          <i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i>
+          Back to Portfolio
+        </a>
+        <a href="/#projects" class="btn-return-secondary">
+          <i data-lucide="folder-check" style="width: 16px; height: 16px;"></i>
+          View Infrastructure Projects
+        </a>
+        <a href="/#contact" class="btn-return-secondary">
+          <i data-lucide="mail" style="width: 16px; height: 16px;"></i>
+          Contact Directly
+        </a>
+      </div>
+
+      <div class="error-contact-box">
+        Need immediate coordination? Call / WhatsApp: 
+        <a href="https://wa.me/917310181309" target="_blank" rel="noopener noreferrer">+91-7310181309</a> 
+        or Email: 
+        <a href="mailto:bkjaiswal3399@gmail.com">bkjaiswal3399@gmail.com</a>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="error-footer">
+      &copy; 2026 Bajarangee Kumar Jaiswal. All rights reserved. EHS Leadership for National Highways &amp; Expressways.
+    </footer>
+
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    });
+  </script>
+</body>
+</html>

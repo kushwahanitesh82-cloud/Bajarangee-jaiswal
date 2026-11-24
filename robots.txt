@@ -1,3 +1,14 @@
+# robots.txt for https://bajarangee-jaiswal.vercel.app
+
 User-agent: *
 Allow: /
-Sitemap: https://bajarangeekumarjaiswal.com/sitemap.xml
+
+# AI Search Engine Crawlers
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# XML Sitemap
+Sitemap: https://bajarangee-jaiswal.vercel.app/sitemap.xml

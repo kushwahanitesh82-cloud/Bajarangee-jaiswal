@@ -16,6 +16,12 @@ A modern, executive-level, fully responsive portfolio website developed for **BA
   - **Diploma in Fire Safety Management** — *JS University (2018)*
   - **Advanced Diploma in Industrial Safety (ADIS)** — *MSBTE, Maharashtra (Pursuing, Expected 2027)*
   - **Civil Engineering** — *JS University (2024)*
+- **Contact Details**:
+  - Phone: `+91-7310181309`
+  - Email: `bkjaiswal3399@gmail.com`
+  - Location: Nanded, Maharashtra, India
+
+---
 
 ## 🎨 Design Direction & Brand Palette
 
@@ -95,6 +101,29 @@ To have the Contact Form send emails directly to `bkjaiswal3399@gmail.com` using
 1. Upload this repository to **GitHub** (using Option A or B above).
 2. Go to **[Vercel.com](https://vercel.com)** and sign in with your GitHub account (Free).
 3. Click **"Add New..."** > **"Project"** and click **Import** next to your `bajarangee-portfolio` repository.
+4. Before clicking Deploy, expand the **"Environment Variables"** section:
+   - **Key**: `RESEND_API_KEY`
+   - **Value**: `re_9wvA6Cct_LuAkg6crywGQGGDF1NXZHPPo`
+   - Click **Add**.
+5. Click **"Deploy"**.
+6. Within 30 seconds, your website is live (e.g. `bajarangee-portfolio.vercel.app`), and every message sent through the Contact Form will arrive directly in `bkjaiswal3399@gmail.com`!
+
+---
+
+## 🌐 Alternative: Enable Free Live Website on GitHub Pages
+
+Once uploaded to GitHub:
+1. Open your repository on GitHub.
+2. Click **Settings** (tab at the top).
+3. In the left sidebar, click **Pages**.
+4. Under **"Build and deployment"** > **Branch**:
+   - Select **`main`** branch.
+   - Select folder **`/ (root)`**.
+5. Click **Save**.
+6. Within 1–2 minutes, your website will be live at:
+   `https://YOUR_USERNAME.github.io/YOUR_REPOSITORY/`
+
+---
 
 ## 📋 Website Sections Included
 1. **Premium Sticky Navigation** — Brand identity, responsive links, resume CTA
